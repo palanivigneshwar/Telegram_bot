@@ -1,12 +1,12 @@
 import os
 from typing import List
 
-from openai import OpenAI
-
+from llama_cpp import Llama
 from rag.loader import load_documents, prepare_chunks
 from rag.embedder import Embedder
 from rag.vector_store import VectorStore
-
+from dotenv import load_dotenv
+load_dotenv()
 class RAGPipeline:
     """
     End-to-end Retrieval-Augmented Generation pipeline.
@@ -16,7 +16,7 @@ class RAGPipeline:
         self.data_path = data_path
         self.embedder = Embedder()
         self.vector_store = VectorStore()
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        self.llm = Llama(model_path=os.getenv("MODEL_PATH"))
 
         self._initialize()
 
@@ -51,11 +51,12 @@ class RAGPipeline:
 
     def generate_answer(self, query: str, context_chunks: List[str]) -> str:
         """
-        Generate answer using OpenAI with retrieved context.
+        Generate answer using local GGUF model (llama.cpp).
         """
         context = "\n\n".join(context_chunks)
 
-        prompt = f"""
+        prompt = f"""[INST]
+
         You are a helpful assistant. Answer the question using ONLY the context below.
 
         Context:
@@ -63,20 +64,16 @@ class RAGPipeline:
 
         Question:
         {query}
-
-        Answer clearly and concisely.
+        [/INST]
         """
-
-        response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.3
+        output = self.llm(
+            prompt,
+            max_tokens=300,
+            temperature=0.3,
+            stop=["</s>"]
         )
 
-        return response.choices[0].message.content.strip()
+        return output["choices"][0]["text"].strip()
 
     def query(self, user_query: str) -> str:
         """
