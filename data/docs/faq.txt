@@ -1,0 +1,14 @@
+Q: What is the difference between AI and Machine Learning?
+A: AI is a broad field focused on intelligent systems, while Machine Learning is a subset that enables systems to learn from data.
+
+Q: What is Deep Learning?
+A: Deep Learning is a type of machine learning that uses multi-layer neural networks.
+
+Q: What is a neural network?
+A: A neural network is a computational model inspired by the human brain, used to recognize patterns in data.
+
+Q: What is overfitting?
+A: Overfitting occurs when a model learns training data too well and performs poorly on new data.
+
+Q: What is NLP used for?
+A: NLP is used for tasks like chatbots, translation, sentiment analysis, and text summarization.

@@ -1,0 +1,22 @@
+Artificial Intelligence (AI) is the field of computer science focused on creating systems that can perform tasks requiring human intelligence.
+
+Key capabilities of AI include:
+
+* Learning from data
+* Reasoning and decision making
+* Problem solving
+* Understanding language
+
+Types of AI:
+
+1. Narrow AI (Weak AI): Designed for specific tasks such as chatbots, recommendation systems, and voice assistants.
+2. General AI (Strong AI): A theoretical form of AI that can perform any intellectual task a human can do.
+
+Applications of AI:
+
+* Healthcare (diagnosis, drug discovery)
+* Finance (fraud detection, trading)
+* Transportation (self-driving cars)
+* Customer support (chatbots)
+
+AI systems rely heavily on data and algorithms to improve their performance over time.

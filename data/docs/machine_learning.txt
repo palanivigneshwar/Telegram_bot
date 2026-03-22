@@ -1,0 +1,28 @@
+Machine Learning (ML) is a subset of Artificial Intelligence that enables systems to learn from data without being explicitly programmed.
+
+Types of Machine Learning:
+
+1. Supervised Learning:
+
+   * Uses labeled data
+   * Examples: classification, regression
+
+2. Unsupervised Learning:
+
+   * Uses unlabeled data
+   * Finds patterns or groupings
+   * Examples: clustering, dimensionality reduction
+
+3. Reinforcement Learning:
+
+   * Learns through rewards and penalties
+   * Used in robotics and game playing
+
+Common algorithms:
+
+* Linear Regression
+* Decision Trees
+* Support Vector Machines
+* Neural Networks
+
+Machine learning models improve as they are exposed to more data.

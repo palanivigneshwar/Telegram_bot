@@ -1,0 +1,26 @@
+Deep Learning is a specialized subset of machine learning that uses neural networks with multiple layers.
+
+Key characteristics:
+
+* Uses large amounts of data
+* Requires high computational power
+* Automatically extracts features from raw data
+
+Common applications:
+
+* Image recognition
+* Speech recognition
+* Natural language processing
+
+Neural Networks:
+
+* Inspired by the human brain
+* Consist of layers: input, hidden, and output
+* Each layer processes information and passes it forward
+
+Popular frameworks:
+
+* TensorFlow
+* PyTorch
+
+Deep learning has enabled major breakthroughs in AI, especially in vision and language tasks.

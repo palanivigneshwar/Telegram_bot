@@ -1,0 +1,23 @@
+Natural Language Processing (NLP) is a field of AI that focuses on enabling computers to understand, interpret, and generate human language.
+
+Key tasks in NLP:
+
+* Text classification
+* Sentiment analysis
+* Machine translation
+* Question answering
+* Chatbots
+
+Modern NLP:
+
+* Uses transformer-based models
+* Examples include BERT, GPT, and T5
+
+Applications:
+
+* Virtual assistants (Siri, Alexa)
+* Language translation (Google Translate)
+* Customer support automation
+* Text summarization
+
+NLP systems convert text into numerical representations and process them using machine learning models.

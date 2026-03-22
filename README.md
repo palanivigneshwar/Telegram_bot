@@ -67,7 +67,7 @@ genai_bot/
 
 ```bash
 git clone <your-repo-url>
-cd genai_bot
+cd Telegram_bot
 ```
 
 ---
@@ -90,30 +90,7 @@ TELEGRAM_BOT_TOKEN=your_telegram_token
 
 ## 🧠 LLM Setup Options
 
-### 🔹 Option A — Ollama (Recommended)
-
-Install Ollama:
-👉 https://ollama.com
-
-Pull a model:
-
-```bash
-ollama pull llama3
-```
-
-Run:
-
-```bash
-ollama run llama3
-```
-
-✔ Easy setup
-✔ Fully local
-✔ Great performance
-
----
-
-### 🔹 Option B — GGUF (llama.cpp)
+GGUF (llama.cpp)
 
 If using a local model file:
 
