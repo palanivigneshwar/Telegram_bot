@@ -1,36 +1,44 @@
-# 🤖 GenAI Telegram Bot (RAG + Vision)
+# 🤖 GenAI Telegram Bot (RAG + Vision + Local LLM)
 
-A lightweight multimodal GenAI bot built using Python that can:
+A lightweight **multimodal GenAI bot** built with Python that supports:
 
-* 📚 Answer questions from custom documents (RAG)
-* 🖼️ Describe uploaded images (Vision AI)
+* 📚 Retrieval-Augmented Generation (RAG) over custom documents
+* 🖼️ Image captioning using a vision model
+* 🧠 Local LLM inference (Ollama or GGUF via llama.cpp)
 
 ---
 
 ## 🚀 Features
 
-### 🧠 Retrieval-Augmented Generation (RAG)
+### 🧠 RAG (Retrieval-Augmented Generation)
 
-* Load local documents (.txt / .md)
-* Chunk and embed using `sentence-transformers`
-* Retrieve relevant context
-* Generate answers using OpenAI
+* Load local `.txt` / `.md` documents
+* Chunk + embed using `sentence-transformers`
+* Retrieve relevant context using cosine similarity
+* Generate answers using a **local LLM (no API required)**
+
+---
 
 ### 🖼️ Image Captioning
 
 * Upload images via Telegram
-* Generate captions using BLIP model
-* Extract tags automatically
+* Generate captions using **BLIP model**
+* Extract keywords/tags automatically
+
+---
+
+### 🧩 Multimodal Support
+
+* Text queries → RAG pipeline
+* Image uploads → Vision pipeline
 
 ---
 
 ## 🏗️ Project Structure
 
-```
 genai_bot/
 │
 ├── app.py
-├── config.py
 │
 ├── bot/
 │   └── handlers.py
@@ -50,50 +58,101 @@ genai_bot/
 │
 ├── requirements.txt
 └── README.md
-```
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1. Clone repo
+### 1. Clone Repository
 
-```
+```bash
 git clone <your-repo-url>
 cd genai_bot
 ```
 
-### 2. Install dependencies
+---
 
-```
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
+---
+
 ### 3. Create `.env`
 
-```
+```env
 TELEGRAM_BOT_TOKEN=your_telegram_token
-OPENAI_API_KEY=your_openai_api_key
 ```
 
-### 4. Add documents
+---
 
-Place 3–5 files in:
+## 🧠 LLM Setup Options
 
+### 🔹 Option A — Ollama (Recommended)
+
+Install Ollama:
+👉 https://ollama.com
+
+Pull a model:
+
+```bash
+ollama pull llama3
 ```
+
+Run:
+
+```bash
+ollama run llama3
+```
+
+✔ Easy setup
+✔ Fully local
+✔ Great performance
+
+---
+
+### 🔹 Option B — GGUF (llama.cpp)
+
+If using a local model file:
+
+```python
+MODEL_PATH = "models/.../mistral-7b-instruct-v0.2.Q4_0.gguf"
+```
+
+Install:
+
+```bash
+pip install llama-cpp-python
+```
+
+✔ Fully offline
+✔ More control
+⚠️ Slightly complex setup
+
+---
+
+## 📂 Add Knowledge Base
+
+Place documents inside:
+
+```bash
 data/docs/
 ```
 
 Example:
 
-* ai.txt
-* faq.md
+* ai_basics.txt
+* machine_learning.txt
+* nlp.txt
+* faq.txt
 
 ---
 
 ## ▶️ Run the Bot
 
-```
+```bash
 python app.py
 ```
 
@@ -109,30 +168,20 @@ python app.py
 
 ---
 
-## 🧠 Tech Stack
-
-| Component     | Technology            |
-| ------------- | --------------------- |
-| Bot Framework | python-telegram-bot   |
-| Embeddings    | sentence-transformers |
-| Vector Store  | In-memory (NumPy)     |
-| LLM           | OpenAI (gpt-4o-mini)  |
-| Vision Model  | BLIP (Hugging Face)   |
-
----
-
 ## 🔄 System Flow
 
-### RAG Pipeline
+### 🧠 RAG Pipeline
 
 1. Load documents
 2. Chunk text
 3. Generate embeddings
 4. Store vectors
 5. Retrieve top-k chunks
-6. Generate answer with LLM
+6. Generate answer using local LLM
 
-### Vision Pipeline
+---
+
+### 🖼️ Vision Pipeline
 
 1. Receive image
 2. Download locally
@@ -142,33 +191,54 @@ python app.py
 
 ---
 
-## 📸 Demo (Add screenshots)
+## 🧰 Tech Stack
 
-* RAG query example
-* Image caption example
-
----
-
-## 🌟 Optional Enhancements
-
-* Conversation memory
-* Caching embeddings
-* Source citations
-* Docker support
-* Hybrid (text + image reasoning)
+| Component     | Technology                |
+| ------------- | ------------------------- |
+| Bot Framework | python-telegram-bot       |
+| Embeddings    | sentence-transformers     |
+| Vector Store  | NumPy (in-memory)         |
+| LLM           | Ollama / llama.cpp (GGUF) |
+| Vision Model  | BLIP (Hugging Face)       |
 
 ---
 
-## ✅ Evaluation Criteria Covered
+## 🌟 Key Design Decisions
 
-✔ Code Quality — modular, clean structure
-✔ System Design — clear RAG + Vision pipelines
-✔ Model Use — efficient local + API mix
-✔ User Experience — simple commands
-✔ Innovation — multimodal support
+* Used **local LLM** to eliminate API dependency
+* Modular architecture for easy extension
+* Lightweight models for efficiency
+* In-memory vector store for simplicity
+
+---
+
+## 📸 Demo
+
+(Add screenshots or GIF here)
+
+---
+
+## 🚀 Future Improvements
+
+* Chat memory (last 3 interactions)
+* Source citations in responses
+* Embedding cache
+* Streaming responses
+* Docker deployment
+
+---
+
+## ✅ Evaluation Coverage
+
+✔ Code Quality — modular and clean
+✔ System Design — clear pipelines
+✔ Model Use — efficient local models
+✔ Efficiency — lightweight + no API cost
+✔ UX — simple Telegram interface
+✔ Innovation — multimodal + local inference
 
 ---
 
 ## 👨‍💻 Author
 
-Palani Vgneshwar
+Palani Vigneshwar
